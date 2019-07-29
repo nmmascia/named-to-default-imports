@@ -8,12 +8,14 @@ module.exports = function(file, api) {
       }
     })
     .replaceWith(path => {
-      const transform = path.value.specifiers.reduce((acc, curr) => {
-        acc += `import ${curr.local.name} from 'containers/${
-          curr.imported.name
-        }'\n`;
-        return acc;
-      }, "");
+      const transform = path.value.specifiers
+        .reduce((acc, curr) => {
+          return acc.concat(
+            `import ${curr.local.name} from 'containers/${curr.imported.name}'`
+          );
+        }, [])
+        .join("\n");
+
       return transform;
     })
     .toSource();
