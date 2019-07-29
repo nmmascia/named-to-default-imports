@@ -1,0 +1,14 @@
+{
+  "name": "named-to-default-imports",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jscodeshift -t index.js example.js --dry --print"
+  },
+  "author": "Nick Mascia <nmmascia@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jscodeshift": "^0.6.4"
+  }
+}
